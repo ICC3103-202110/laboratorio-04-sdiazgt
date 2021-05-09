@@ -5,9 +5,10 @@ function update(msg,counter){
     if(msg === "+"){
         return counter + 1;
     }
-    if(msg === "-"){
+    else if(msg === "-"){
         return counter - 1;
     }
+    else return counter;
     
 }
 function app(counter){
@@ -16,7 +17,12 @@ function app(counter){
         //console.clear();
         var prompt = require('prompt-sync')();
         let action = prompt('What would you do? ');
-        
+        if(action==="q"){
+            console.log("\nExiting Program\n");
+            break;
+        }
+        counter = update(action,counter);
+        console.clear();
     }
 }
 //console.log("ayuda");
